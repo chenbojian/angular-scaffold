@@ -1,0 +1,22 @@
+{
+  "name": "angular-scaffold",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "chenbojian"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/chenbojian/angular-scaffold",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8"
+  }
+}
