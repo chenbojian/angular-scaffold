@@ -2,7 +2,7 @@
     angular.module('App').config(['$routeProvider', function($routeProvider){
         $routeProvider.
             when('/home', {
-                templateUrl: 'home.html',
+                templateUrl: '/app/main/main.html',
                 controller: 'MainController',
                 controllerAs: 'main'
             }).
