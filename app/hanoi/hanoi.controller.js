@@ -1,28 +1,27 @@
 (function(){
     angular.module('App').controller('HanoiController', HanoiController);
-    HanoiController.$inject = ['$timeout']
+    HanoiController.$inject = ['$q', '$timeout']
     
-    function HanoiController($timeout) {
+    function HanoiController($q, $timeout) {
         var vm = this;
         var result = [];
         vm.data = [];
         hanoi(4, 'A', 'B', 'C');
-        var defer = Promise.defer();
+        var defer = $q.defer();
         var p = defer.promise;
         for(var value of result) {
+            p = p.then(delay);
             p = p.then(genFunc(value));
         }
         defer.resolve(0);
 
         function genFunc(value) {
             return () => {
-                var defer = Promise.defer();
-                $timeout(function(){
-                    defer.resolve(0);
-                    vm.data.push(value);
-                }, 1000);
-                return defer.promise;
+                vm.data.push(value);
             };
+        }
+        function delay() {
+            return new $q((resolve) => $timeout(resolve, 1000));
         }
 
         function hanoi(n, src, middle, dest) {
