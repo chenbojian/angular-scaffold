@@ -6,6 +6,11 @@
                 controller: 'MainController',
                 controllerAs: 'main'
             }).
+            when('/hanoi', {
+                templateUrl: '/app/hanoi/hanoi.html',
+                controller: 'HanoiController',
+                controllerAs: 'hanoi'
+            }).
             otherwise({
                 redirectTo: '/home'
             });
